@@ -1,0 +1,52 @@
+{% extends 'app/book_template.html' %}
+
+{% block title %}
+{{ book.title }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="mt-5">
+    <center>
+        {{ book.title }}
+    </center>
+</h1>
+<h3>
+    <strong>
+        Автор:
+    </strong>
+    {{ book.author }}
+</h3>
+<p>
+    <strong>
+        Раздел:
+    </strong>
+    {% for genre in book.genre.all %}
+    {{ genre }}
+    {% if not forloop.last %},
+    {% endif %}
+    {% endfor %}
+</p>
+<p> <strong>
+        Издательство:
+    </strong>
+    {{ book.dateline }}
+</p>
+<p>
+    <strong>
+        Аннотация:
+    </strong>
+    {{ book.addition }}
+</p>
+<p>
+    <strong>
+        Субъективная оценка:
+    </strong>
+    {% for rating in book.rating.all %}
+    {{ rating }}
+    {% if not forloop.last %},
+    {% endif %}
+    {% endfor %}
+</p>
+
+{% endblock %}

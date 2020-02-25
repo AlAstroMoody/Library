@@ -1,0 +1,36 @@
+.admin-panel {
+    background: rgb(175, 189, 195);
+    border: 1px solid#999;
+    border-radius: 2px;
+    position: fixed;
+    right: 4%;
+    bottom: 5%;
+    opacity: 0.3;
+    padding: 15px;
+}
+
+.admin-panel:hover {
+    opacity:1;
+}
+
+.admin-panel a {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.shadow {
+    color: black; 
+    font-size: 4em; 
+    text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255);
+}
+.shadow2 {
+    color: white; 
+    font-size: 1.5em; 
+    text-shadow: 2px 2px 2px black, 0 0 1em rgb(255, 255, 255)
+}
+.shadow3 {
+    color: black; 
+    font-size: 1.5em; 
+    text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255)
+}
+

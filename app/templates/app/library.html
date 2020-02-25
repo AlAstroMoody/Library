@@ -1,0 +1,50 @@
+{% extends 'app/book_template.html' %}
+
+
+{% block title %}
+Books list
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-5">В библиотеке есть эти и многие другие книги:</h1>
+{% for book in page_objects.object_list %}
+<div class="card mb-4">
+  <div class="card-header bg-dark">
+    <h3 class="shadow2">{{ book.title }}</h3>
+  </div>
+  <div class="card-body" style=" background: rgb(217, 213, 224);">
+    <h5 class="shadow3"">{{ book.author }}</h5>
+    <p class=" card-text">{{ book.addition|truncatewords:15 }}</p>
+      <a href="{% url 'app:book_details_url' slug=book.slug %}" class="btn btn-info">Подробнее</a>
+  </div>
+</div>
+{% endfor %}
+
+
+{% if is_paginated %}
+
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item {% if not prev_url %} disabled {% endif %}">
+      <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    {% for i in page_objects.paginator.page_range %}
+    {% if page_objects.number == i %}
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="?page={{ i }}">{{ i }} <span class="sr-only">(current)</span></a>
+    </li>
+    {% elif i > page_objects.number|add:-3 and i < page_objects.number|add:3%}
+
+    <li class="page-item">
+      <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    <li class="page-item {% if not next_url %} disabled {% endif %}">
+      <a class="page-link" href="{{ next_url }}">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endif %}
+{% endblock %}
