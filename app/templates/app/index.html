@@ -1,74 +1,88 @@
 {% extends 'app/book_template.html' %}
 
 {% block title %}
-HomeLibrary
+    HomeLibrary
 {% endblock %}
 
 
 {% block content %}
+    <div class="view" style="height: auto">
+        <div class="mask rgba-black-light align-items-center">
+            <div class="development container">
+                <div class="jumbotron" style="background-image: url(/static/app/library.jpg);">
+                    <h1 class="shadow">
+                        Home library
+                    </h1>
+                    <p class="shadow2">
+                        Небольшое приложение для работы с домашней библиотекой
+                    </p>
+                    <hr class=" my-2">
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg book_button" href="{% url 'app:library_url' %}" role="button">Перейти в
+                            библиотеку</a>
+                    </p>
+                </div>
+            </div>
 
-<div class="view">
-  <div class="mask rgba-black-light align-items-center">
-    <div class="development container">
-      <div class="jumbotron" style="background-image: url(/static/app/library.jpg);">
-        <h1 class="shadow">
-          Home library
-        </h1>
-        <p class="shadow2">
-          Небольшое приложение для работы с домашней библиотекой
-        </p>
-        <hr class=" my-2">
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="{% url 'app:library_url' %}" role="button">Перейти в библиотеку</a>
-        </p>
-      </div>
+            <h2>
+                <div class="shadow2" style="text-align: center;">Новинки библиотеки:</div>
+            </h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white for_cards mb-3" style="max-width: 18rem;">
+                            <div>
+                                <img class="card-img-top" src="/static/app/book2.jpg" width="100" height="150"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h5>{{ books.0 }}</h5>
+                                    <p class="card-text">{{ books.0.author }}</p>
+                                    <a href="{% url 'app:book_details_url' slug=books.0.slug %}"
+                                       class="btn book_button">
+                                        <div class="for_fonts">Смотреть</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white for_cards mb-3" style="max-width: 18rem;">
+                            <div>
+                                <img class="card-img-top" src="/static/app/book1.jpg" width="100" height="150"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h5>{{ books.1 }}</h5>
+                                    <p class="card-text">{{ books.1.author }}</p>
+                                    <a href="{% url 'app:book_details_url' slug=books.1.slug %}"
+                                       class="btn book_button">
+                                        <div class="for_fonts">Смотреть</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white for_cards mb-3" style="max-width: 18rem;">
+                            <div>
+                                <img class="card-img-top" src="/static/app/book4.jpg" width="100" height="150"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h5>{{ books.2 }}</h5>
+                                    <p class="card-text">{{ books.2.author }}</p>
+                                    <a href="{% url 'app:book_details_url' slug=books.2.slug %}"
+                                       class="btn book_button">
+                                        <div class="for_fonts">Смотреть</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <h2>
-      <center>Новинки библиотеки:</center>
-    </h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-4">
-          <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-            <div>
-              <img class="card-img-top" src="/static/app/book2.jpg" width="100" height="150" alt="Card image cap">
-              <div class="card-body">
-                <h5>{{ books.0 }}</h5>
-                <p class="card-text">{{ books.0.author }}</p>
-                <a href="{% url 'app:book_details_url' slug=books.0.slug %}" class="btn btn-info">Смотреть</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4">
-          <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div>
-              <img class="card-img-top" src="/static/app/book1.jpg" width="100" height="150" alt="Card image cap">
-              <div class="card-body">
-                <h5>{{ books.1 }}</h5>
-                <p class="card-text">{{ books.1.author }}</p>
-                <a href="{% url 'app:book_details_url' slug=books.1.slug %}" class="btn btn-info">Смотреть</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4">
-          <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-            <div>
-              <img class="card-img-top" src="/static/app/book4.jpg" width="100" height="150" alt="Card image cap">
-              <div class="card-body">
-                <h5>{{ books.2 }}</h5>
-                <p class="card-text">{{ books.2.author }}</p>
-                <a href="{% url 'app:book_details_url' slug=books.2.slug %}" class="btn btn-info">Смотреть</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}

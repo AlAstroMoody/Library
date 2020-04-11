@@ -1,10 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
-from time import time
-
-
-def gen_slug(s):
-    return str(int(time()))
+from datetime import datetime
 
 
 class BookModel(models.Model):
@@ -20,6 +16,7 @@ class BookModel(models.Model):
     rating = models.ManyToManyField(
         'Rating', related_name='book', verbose_name="Рейтинг")
     slug = models.SlugField(max_length=50, blank=True, unique=True)
+    time_added = models.DateTimeField(default=datetime.now())
 
     def get_absolute_url(self):
         return reverse('book_details_url', kwargs={'slug': self.slug})
@@ -33,13 +30,13 @@ class BookModel(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = gen_slug(self.title)
+            self.slug = self.author + '_' + self.title
         super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Библиотека'
         verbose_name_plural = 'Библиотека'
-        ordering = ['-slug']
+        ordering = ['-time_added']
 
 
 class Genre(models.Model):

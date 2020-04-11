@@ -1,16 +1,16 @@
 .admin-panel {
-    background: rgb(175, 189, 195);
-    border: 1px solid#999;
+    border: 1px solid #999;
     border-radius: 2px;
     position: fixed;
     right: 4%;
     bottom: 5%;
     opacity: 0.3;
     padding: 15px;
+    background: linear-gradient(129.56deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
 }
 
 .admin-panel:hover {
-    opacity:1;
+    opacity: 1;
 }
 
 .admin-panel a {
@@ -18,19 +18,54 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 .shadow {
-    color: black; 
-    font-size: 4em; 
+    color: black;
+    font-size: 4em;
     text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255);
 }
+
 .shadow2 {
-    color: white; 
-    font-size: 1.5em; 
+    color: white;
+    font-size: 1.5em;
     text-shadow: 2px 2px 2px black, 0 0 1em rgb(255, 255, 255)
 }
+
 .shadow3 {
-    color: black; 
-    font-size: 1.5em; 
+    color: black;
+    font-size: 1.5em;
     text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255)
 }
 
+.main {
+    background: linear-gradient(129.56deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
+    min-height: 100vh;
+}
+
+.for_cards {
+    background: linear-gradient(157.73deg, #262B2F -0.68%, #121212 74.03%);
+    opacity: 0.6;
+}
+
+.for_cards:hover {
+    opacity: 1;
+}
+
+.for_fonts {
+    opacity: 0.8;
+    color: rgb(255, 255, 255);
+}
+.for_fonts:hover {
+    opacity: 1;
+}
+
+.book_button {
+    padding: 10px;
+    background: linear-gradient(129.56deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
+    border: 1px solid #999;
+    border-radius: 8px;
+    opacity: 0.7;
+}
+.book_button:hover {
+    opacity: 1;
+}

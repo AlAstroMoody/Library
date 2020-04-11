@@ -1,17 +1,23 @@
 {% extends 'app/book_template.html' %}
 
 {% block title %}
-Delete book "{{ book.title|title }}" - {{ block.super }}
+    Delete book "{{ book.title|title }}" - {{ block.super }}
 {% endblock %}
 
 {% block content %}
 
-<form action="{% url 'app:book_delete_url' slug=book.slug %}" method='post'>
-    {% csrf_token %}
-    <h3> Вы действительно хотите удалить <b>{{ book.title|title }}</b>?</h3>
-    <a href="{% url 'app:book_details_url' slug=book.slug %}">Cancel</a>
-    <button type="submit" name="button" class="btn btn-danger">
-        Delete
-    </button>
-</form>
+    <form action="{% url 'app:book_delete_url' slug=book.slug %}" method='post'>
+        {% csrf_token %}
+        <h3 class="for_fonts"> Вы действительно хотите удалить из библиотеки книгу "<b>{{ book.title|title }}</b>"?</h3>
+        <button type="submit" name="button" class="btn book_button">
+            <a href="{% url 'app:book_details_url' slug=book.slug %}">
+                <div class="for_fonts">Cancel</div>
+            </a>
+        </button>
+        <button type="submit" name="button" class="btn book_button">
+            <div class="for_fonts">
+                Delete
+            </div>
+        </button>
+    </form>
 {% endblock %}
