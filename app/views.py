@@ -1,17 +1,20 @@
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, View
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.views.generic import ListView, View
 
-from .models import BookModel
 from .forms import BookForm
+from .models import BookModel
 
 
 class Homepage(View):
     def get(self, request):
-        books = BookModel.objects.all()[:3]
-        return render(request, 'app/index.html', context={'books': books})
+        books = BookModel.objects.all()
+        random_books = BookModel.objects.order_by('time_added').filter(rating='5')[:4]
+        return render(request, 'app/index.html', context={'books': books,
+                                                          'random_books': random_books, 'about_me': True})
 
 
 class Catalog(ListView):
@@ -98,5 +101,4 @@ class BookDelete(View):
     def post(self, request, slug):
         book = get_object_or_404(BookModel, slug__iexact=slug)
         book.delete()
-        books = BookModel.objects.all()
-        return render(request, 'app/library.html', context={'books': books})
+        return HttpResponseRedirect('/library/')

@@ -8,3 +8,9 @@
         <a href="{% url 'app:book_delete_url' slug=book.slug %}" class="btn btn-danger">delete</a>
     {% endif %}
 {% endblock %}
+
+{% block about-me %}
+    {% if about_me %}
+        <img src="/static/app/me.jpg" alt="Моё фото)"/>
+    {% endif %}
+{% endblock %}

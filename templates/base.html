@@ -17,7 +17,7 @@
 </head>
 
 <body class="main">
-<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+<nav class="navbar for_cards navbar-expand-md">
     <a class="navbar-brand" href="{% url 'app:index_url' %}">Home library</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,8 +44,8 @@
     </div>
 </nav>
 
-<div class="container mt-5">
-    <div class='row'>
+<div class="container mt-3 mb-5">
+    <div class="row">
         <div class="col-10 offset-md-1">
             {% block content %}
                 Nothing
@@ -59,6 +59,23 @@
     {% endblock %}
 </div>
 
+<div class="circle about-me">
+    <a href="https://github.com/VeryStupidNickName">
+        {% block about-me %}
+        {% endblock %}
+    </a>
+</div>
+
+<nav class="navbar fixed-bottom for_cards">
+    <div class="left">
+        <h3 class="for_other_fonts">
+            <script src="/static/js/rotate.js"></script>
+            <span class="txt-rotate" data-period="1000"
+                  data-rotate='[ "Читайте книги!", "Узнавайте новое!", "Развивайтесь!", "Фантазируйте!", "У вас всё получится!" ]'>
+            </span>
+        </h3>
+    </div>
+</nav>
 
 </body>
 

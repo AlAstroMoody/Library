@@ -5,23 +5,24 @@
 {% endblock %}
 
 {% block content %}
-
-    <form action="{% url 'app:book_create_url' %}" method='post'>
-        {% csrf_token %}
-        {% for field in form %}
-            <div class=" form-group for_fonts">
-                {% if field.errors %}
-                    <div class="alert alert-danger">
-                        {{ field.errors }}
-                    </div>
-                {% endif %}
-                {{ field.label }}
-                <p></p>
-                {{ field }}
-            </div>
-        {% endfor %}
-        <button type="submit" name="button" class="btn book_button">
-            <div class="for_fonts">Create book</div>
-        </button>
-    </form>
+    <div class="mb-3">
+        <form action="{% url 'app:book_create_url' %}" method='post'>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class=" form-group for_fonts">
+                    {% if field.errors %}
+                        <div class="alert alert-danger">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                    {{ field.label }}
+                    <p></p>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit" name="button" class="btn book_button">
+                <div class="for_fonts">Create book</div>
+            </button>
+        </form>
+    </div>
 {% endblock %}

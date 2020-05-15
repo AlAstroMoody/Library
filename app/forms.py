@@ -14,7 +14,7 @@ class BookForm(forms.ModelForm):
         'author': forms.TextInput(attrs={'class': 'form-control'}),
         'dateline': forms.TextInput(attrs={'class': 'form-control'}),
         'genre': forms.SelectMultiple(attrs={'class': 'form-control'}),
-        'addition': forms.Textarea(attrs={'class': 'form-control'}),
+        'addition': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'cols': 15}),
         'rating': forms.SelectMultiple(attrs={'class': 'form-control'})
     }
 

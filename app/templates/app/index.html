@@ -18,19 +18,56 @@
                     </p>
                     <hr class=" my-2">
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg book_button" href="{% url 'app:library_url' %}" role="button">Перейти в
-                            библиотеку</a>
+                        <a class="btn btn-primary btn-lg book_button" href="{% url 'app:library_url' %}"
+                           role="button">Перейти в библиотеку</a>
                     </p>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card for_cards w-auto">
+                        <div class="card-body">
+                            <h5 class="card-title for_fonts">Выбери свою книгу...</h5>
+                            <div class="content">
+                                <div class="content__container">
+                                    <ul class="content__container__list">
+                                        {% for book in random_books %}
+                                            <li>
+                                                <a href="{% url 'app:book_details_url' slug=book.slug %}">{{ book.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card for_cards w-auto">
+                        <div class="card-body">
+                            <h5 class="card-title for_fonts">Или автора</h5>
+                            <div class="content">
+                                <div class="content__container">
+                                    <ul class="content__container__list">
+                                        {% for book in random_books %}
+                                            <li>
+                                                <a href="{% url 'app:book_details_url' slug=book.slug %}">{{ book.author }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <h2>
                 <div class="shadow2" style="text-align: center;">Новинки библиотеки:</div>
             </h2>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-6 col-lg-4  mb-4">
                         <div class="card text-white for_cards mb-3" style="max-width: 18rem;">
                             <div>
                                 <img class="card-img-top" src="/static/app/book2.jpg" width="100" height="150"

@@ -24,8 +24,8 @@
                         <td><a href="{% url 'app:book_details_url' slug=book.slug %}">{{ book.title }}</a></td>
                         <td>{{ book.author }}</td>
                         <td>{% for genre in book.genre.all %}
-                            {{ genre }}
-                            {% if not forloop.last %},
+                            {{ genre }},
+                            {% if not forloop.last %}
                             {% endif %}
                         {% endfor %}
                         </td>

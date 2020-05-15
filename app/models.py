@@ -1,6 +1,7 @@
+from datetime import datetime
+
 from django.db import models
 from django.shortcuts import reverse
-from datetime import datetime
 
 
 class BookModel(models.Model):
@@ -12,11 +13,11 @@ class BookModel(models.Model):
         max_length=100, verbose_name="Издательство и год выпуска")
     genre = models.ManyToManyField(
         'Genre', related_name='book', verbose_name="Раздел")
-    addition = models.CharField(max_length=1000, verbose_name="Описание")
+    addition = models.TextField(max_length=1000, verbose_name="Описание")
     rating = models.ManyToManyField(
         'Rating', related_name='book', verbose_name="Рейтинг")
     slug = models.SlugField(max_length=50, blank=True, unique=True)
-    time_added = models.DateTimeField(default=datetime.now())
+    time_added = models.DateTimeField(default=datetime.now)
 
     def get_absolute_url(self):
         return reverse('book_details_url', kwargs={'slug': self.slug})
