@@ -9,14 +9,14 @@ class BookForm(forms.ModelForm):
         model = BookModel
         fields = ['title', 'author', 'dateline', 'genre', 'addition', 'rating']
 
-    widgets = {
-        'title': forms.TextInput(attrs={'class': 'form-control'}),
-        'author': forms.TextInput(attrs={'class': 'form-control'}),
-        'dateline': forms.TextInput(attrs={'class': 'form-control'}),
-        'genre': forms.SelectMultiple(attrs={'class': 'form-control'}),
-        'addition': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'cols': 15}),
-        'rating': forms.SelectMultiple(attrs={'class': 'form-control'})
-    }
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'dateline': forms.TextInput(attrs={'class': 'form-control'}),
+            'genre': forms.CheckboxSelectMultiple(attrs={'class': 'form-control'}),
+            'addition': forms.Textarea(attrs={'class': 'form-control', 'rows': 8, 'cols': 20}),
+            'rating': forms.SelectMultiple(attrs={'class': 'form-control'})
+        }
 
     def clean_book(self):
         new_book = self.cleaned_data['book'].lower()

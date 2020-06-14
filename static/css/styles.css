@@ -158,3 +158,12 @@
     color: rgb(255, 255, 255);
     text-indent: 4.5em;
 }
+.navbar{
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(157.73deg, #262B2F -0.68%, #121212 74.03%);
+}
+
+.size_image{
+width: 100%;
+height: 150%;
+}

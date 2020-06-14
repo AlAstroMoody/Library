@@ -1,28 +1,49 @@
 {% extends 'app/book_template.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Create book
 {% endblock %}
 
 {% block content %}
-    <div class="mb-3">
+    <div class="row">
+
         <form action="{% url 'app:book_create_url' %}" method='post'>
             {% csrf_token %}
-            {% for field in form %}
-                <div class=" form-group for_fonts">
-                    {% if field.errors %}
-                        <div class="alert alert-danger">
-                            {{ field.errors }}
-                        </div>
-                    {% endif %}
-                    {{ field.label }}
-                    <p></p>
-                    {{ field }}
+
+            <div class=" form-group for_fonts">
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.author  | as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.title  | as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.dateline  | as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.rating  | as_crispy_field }}
+                    </div>
                 </div>
-            {% endfor %}
-            <button type="submit" name="button" class="btn book_button">
-                <div class="for_fonts">Create book</div>
-            </button>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.genre  | as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.addition  | as_crispy_field }}
+                    </div>
+                </div>
+                <button type="submit" name="button" class="btn book_button">
+                    <div class="for_fonts">Create book</div>
+                </button>
         </form>
+
     </div>
 {% endblock %}

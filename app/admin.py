@@ -3,8 +3,8 @@ from django.contrib import admin
 from .models import BookModel, Genre, Rating
 
 admin.site.register(BookModel)
-admin.site.register(Rating)
 admin.site.register(Genre)
+admin.site.register(Rating)
 
 
 class BookAdmin(admin.ModelAdmin):

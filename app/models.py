@@ -21,6 +21,7 @@ class BookModel(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_details_url', kwargs={'slug': self.slug})
+
     #  попробовать использовать функцию в дальнейшем
 
     def get_update_url(self):
@@ -31,7 +32,7 @@ class BookModel(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = self.author + '_' + self.title
+            self.slug = f'{self.author}, {self.title}'
         super().save(*args, **kwargs)
 
     class Meta:
